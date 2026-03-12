@@ -2,184 +2,139 @@
 
 import Logo from "@/components/Logo";
 
-const PRICED_IN_ITEMS = [
-  "War in the Middle East",
-  "Fed rate decision",
-  "Your student loans",
-  "Alien contact",
-  "The heat death of the universe",
-  "Your ex texting back",
-  "AI taking your job",
-  "The next pandemic",
-  "Bitcoin at $1M",
-  "Your existential crisis",
-  "Elon's next tweet",
-  "The simulation breaking",
+const PRICED_ITEMS = [
+  "War in the Middle East", "Fed rate decision", "Alien contact",
+  "Your student loans", "The next pandemic", "AI taking your job",
+  "Your ex texting back", "Elon's next tweet", "Heat death of the universe",
+  "Bitcoin at $1M", "The simulation breaking", "This token existing",
 ];
 
-const MANIFESTO = [
-  {
-    num: "01",
-    title: "The market knows everything",
-    text: "Before you read the headline, the market already moved. Before you felt the fear, it was already priced in. You are not trading information — you are trading the echo of information.",
-  },
-  {
-    num: "02",
-    title: "Your emotions are a lagging indicator",
-    text: "By the time you panic, the panic is over. By the time you feel hope, hope is already sold. The market front-runs your feelings like they're public filings.",
-  },
-  {
-    num: "03",
-    title: "Everything is already priced in",
-    text: "This is not a joke. This is not a meme. This is the most honest thing anyone has ever said in finance. Every outcome, every scenario, every apocalypse — already in the price.",
-  },
-  {
-    num: "04",
-    title: "Even this is priced in",
-    text: "You reading this? Priced in. You buying? Priced in. You thinking about whether this is priced in? Also priced in. The recursion never ends.",
-  },
-];
-
-export default function Home() {
+export default function Page() {
   return (
-    <>
-      <div className="scanlines" />
-
-      {/* Ticker Tape */}
-      <div className="fixed top-0 w-full z-50 bg-[#39ff14]/10 border-b border-[#39ff14]/20 py-1 overflow-hidden">
-        <div className="ticker-tape flex gap-8 text-xs font-mono text-[#39ff14]/70">
-          {[...PRICED_IN_ITEMS, ...PRICED_IN_ITEMS].map((item, i) => (
+    <div className="scanlines">
+      {/* ── TICKER TAPE ── */}
+      <div className="fixed top-0 w-full z-50 bg-[var(--color-surface)] border-b border-[var(--color-border)] py-1.5 overflow-hidden">
+        <div className="ticker text-[10px] text-[var(--color-green)]/50">
+          {[...PRICED_ITEMS, ...PRICED_ITEMS].map((item, i) => (
             <span key={i} className="shrink-0">
-              {item} <span className="text-[#39ff14]/30">— PRICED IN ✓</span>
-              <span className="mx-4 text-[#39ff14]/20">│</span>
+              {item} <span className="text-[var(--color-green)]">✓ PRICED IN</span>
+              <span className="mx-3 text-[var(--color-green)]/20">│</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* Nav */}
-      <nav className="fixed top-8 w-full z-40 backdrop-blur-md bg-[#0f0f1a]/80 border-b border-[#39ff14]/10">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Logo size={28} />
-            <span className="font-mono font-bold text-sm text-[#39ff14]/80 tracking-wider">PRICEDIN</span>
-          </div>
-          <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
-            className="text-xs font-mono px-4 py-1.5 border border-[#39ff14]/30 text-[#39ff14]/80 hover:bg-[#39ff14]/10 transition-all">
-            Follow →
-          </a>
+      {/* ── NAV ── */}
+      <nav className="fixed top-7 w-full z-40 bg-[var(--color-bg)]/80 backdrop-blur-sm border-b border-[var(--color-border)] px-6 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Logo size={20} />
+          <span className="text-[10px] font-semibold tracking-[0.2em] text-[var(--color-green)]/60">PRICEDIN</span>
         </div>
+        <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
+          className="text-[10px] font-mono font-semibold text-black bg-[var(--color-green)] px-3 py-1 hover:bg-[var(--color-green-dim)] transition-colors">
+          FOLLOW →
+        </a>
       </nav>
 
-      {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center px-6 pt-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="fade-up fade-up-1 font-mono text-xs text-[#39ff14]/50 tracking-[0.4em] mb-6">
-            &gt; MARKET_STATUS: OMNISCIENT
-          </p>
-          <h1 className="fade-up fade-up-2 text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6">
-            <span className="text-white">Everything is</span>
-            <br />
-            <span className="text-[#39ff14] glow-text">already priced in</span>
-          </h1>
-          <p className="fade-up fade-up-3 font-mono text-sm text-[#a0a0b0] max-w-lg mx-auto leading-relaxed mb-10">
-            Your fear. Your hope. Your existence.
-            <br />
-            The market knew before you did.
-            <span className="cursor-blink" />
-          </p>
-          <div className="fade-up fade-up-4">
-            <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
-              className="inline-block font-mono text-sm px-8 py-3 bg-[#39ff14] text-black font-bold hover:bg-[#39ff14]/90 transition-all">
-              ACKNOWLEDGE →
-            </a>
+      {/* ── HERO: Terminal Boot Screen ── */}
+      <section className="min-h-[100svh] flex items-center justify-center px-6 pt-20 relative">
+        {/* Matrix-style ambient glow */}
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-[var(--color-green)]/[0.03] blur-[150px] rounded-full pointer-events-none" />
+
+        <div className="max-w-2xl w-full anim-up d1">
+          <div className="terminal">
+            <div className="terminal-bar">
+              <div className="terminal-dot" />
+              <div className="terminal-dot" />
+              <div className="terminal-dot active" />
+              <span className="text-[10px] text-[var(--color-green)]/40 ml-2 font-mono">pricedin.exe — market omniscience terminal</span>
+            </div>
+            <div className="terminal-body">
+              <p className="text-[var(--color-green)]/40 mb-4">$ initializing market analysis...</p>
+              <p className="text-[var(--color-green)]/40 mb-4">$ scanning all possible futures...</p>
+              <p className="text-[var(--color-green)]/40 mb-6">$ result:</p>
+              <h1 className="text-3xl md:text-5xl font-bold text-white glow mb-4" style={{ fontFamily: 'var(--font-sans)' }}>
+                Everything is already<br />
+                <span className="text-[var(--color-green)]">priced in.</span>
+              </h1>
+              <p className="text-[var(--color-muted)] text-sm mb-6">
+                Your fear. Your hope. Your existence.<br />
+                The market knew before you did.
+              </p>
+              <p className="text-[var(--color-green)]/60 text-xs cursor">
+                &gt; status: CONFIRMED
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Status Board */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="section-divider mb-16" />
-          <p className="text-center font-mono text-xs text-[#39ff14]/40 tracking-[0.3em] mb-4">
-            &gt; REAL_TIME_STATUS
-          </p>
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-white mb-12 tracking-tight">
-            Current Market Assessment
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {PRICED_IN_ITEMS.map((item, i) => (
-              <div key={i} className="terminal-card rounded px-4 py-3 flex items-center justify-between">
-                <span className="text-xs text-[#a0a0b0]">{item}</span>
-                <span className="text-xs text-[#39ff14] font-bold tracking-wider">PRICED IN ✓</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Manifesto */}
-      <section className="py-24 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="section-divider mb-16" />
-          <p className="text-center font-mono text-xs text-[#39ff14]/40 tracking-[0.3em] mb-4">
-            &gt; PROTOCOL_MANIFESTO
-          </p>
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-white mb-16 tracking-tight">
-            The Priced In Thesis
-          </h2>
-          <div className="space-y-12">
-            {MANIFESTO.map((m) => (
-              <div key={m.num} className="group">
-                <div className="flex items-start gap-6">
-                  <span className="font-mono text-[#39ff14]/30 text-xs mt-1 shrink-0">{m.num}</span>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#39ff14] transition-colors">
-                      {m.title}
-                    </h3>
-                    <p className="text-sm text-[#a0a0b0] leading-relaxed">{m.text}</p>
-                  </div>
+      {/* ── STATUS BOARD ── */}
+      <section className="py-16 md:py-24 px-6">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-[10px] text-[var(--color-green)]/40 tracking-[0.3em] uppercase mb-6">REAL-TIME ASSESSMENT</p>
+          <div className="terminal">
+            <div className="terminal-bar">
+              <div className="terminal-dot active" />
+              <span className="text-[10px] text-[var(--color-green)]/40 ml-2 font-mono">status_board.sh</span>
+            </div>
+            <div className="px-5 py-3">
+              {PRICED_ITEMS.map((item, i) => (
+                <div key={i} className="status-row">
+                  <span className="text-[var(--color-text)]">{item}</span>
+                  <span className="text-[var(--color-green)] font-semibold tracking-wider">✓ PRICED IN</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="section-divider mb-16" />
-          <div className="terminal-card glow-border rounded-lg p-12">
-            <p className="font-mono text-xs text-[#39ff14]/50 mb-4">&gt; QUERY: Is $PRICEDIN priced in?</p>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
-              Yes. <span className="text-[#39ff14]">Even this.</span>
-            </h2>
-            <p className="text-sm text-[#a0a0b0] mb-8">
-              And yet here you are. Which means you already know what to do.
+      {/* ── THESIS ── */}
+      <section className="py-16 md:py-24 px-6 border-t border-[var(--color-border)]">
+        <div className="max-w-xl mx-auto space-y-12">
+          <p className="text-[10px] text-[var(--color-green)]/40 tracking-[0.3em] uppercase mb-8">THE THESIS</p>
+          {[
+            { cmd: "$ explain --market-omniscience", title: "The market knows everything.", text: "Before you read the headline, the market already moved. Before you felt the fear, it was already priced in. You're not trading information — you're trading the echo of information." },
+            { cmd: "$ explain --emotional-lag", title: "Your emotions are a lagging indicator.", text: "By the time you panic, the panic is over. By the time you feel hope, hope is already sold. The market front-runs your feelings like they're public filings." },
+            { cmd: "$ explain --recursion", title: "Even this is priced in.", text: "You reading this? Priced in. You buying? Priced in. You thinking about whether this is priced in? Also priced in. The recursion never ends." },
+            { cmd: "$ explain --meta", title: "The only honest thing in finance.", text: "Not a prediction. Not alpha. Just the cold truth that every possible outcome is already reflected in the price. Always has been." },
+          ].map((item, i) => (
+            <div key={i} className="group">
+              <p className="text-[10px] text-[var(--color-green)]/30 mb-3 font-mono">{item.cmd}</p>
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[var(--color-green)] transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>{item.title}</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-20 md:py-28 px-6 border-t border-[var(--color-border)] relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(57,255,20,0.02)_0%,transparent_60%)] pointer-events-none" />
+        <div className="max-w-lg mx-auto text-center relative z-10">
+          <div className="terminal inline-block mb-8 px-6 py-3">
+            <p className="text-xs text-[var(--color-green)]/40 font-mono">$ query "Is $PRICEDIN priced in?"</p>
+            <p className="text-2xl font-bold text-white mt-2 glow" style={{ fontFamily: 'var(--font-sans)' }}>
+              Yes. <span className="text-[var(--color-green)]">Even this.</span>
             </p>
-            <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
-              className="inline-block font-mono text-sm px-10 py-3 bg-[#39ff14] text-black font-bold hover:bg-[#39ff14]/90 transition-all">
-              IT WAS ALWAYS PRICED IN →
-            </a>
           </div>
+          <p className="text-sm text-[var(--color-muted)] mb-8">And yet here you are. Which means you already know what to do.</p>
+          <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
+            className="inline-block text-xs font-mono font-semibold text-black bg-[var(--color-green)] px-6 py-3 hover:bg-[var(--color-green-dim)] transition-colors">
+            ACKNOWLEDGE ✓ →
+          </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[#39ff14]/10 py-6 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Logo size={18} />
-            <span className="font-mono text-xs text-[#39ff14]/40">PRICEDIN</span>
-          </div>
-          <p className="font-mono text-[10px] text-[#39ff14]/20">
-            This message is also priced in.
-          </p>
-          <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
-            className="font-mono text-xs text-[#a0a0b0]/50 hover:text-[#39ff14] transition-colors">𝕏</a>
+      {/* ── FOOTER ── */}
+      <footer className="border-t border-[var(--color-border)] py-6 px-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Logo size={14} />
+          <span className="text-[9px] tracking-[0.2em] text-[var(--color-green)]/30">PRICEDIN</span>
         </div>
+        <p className="text-[9px] text-[var(--color-green)]/15 font-mono">This message is also priced in.</p>
       </footer>
-    </>
+    </div>
   );
 }
