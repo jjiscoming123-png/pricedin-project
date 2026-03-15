@@ -30,7 +30,7 @@ export default function Page() {
           <Logo size={20} />
           <span className="text-[10px] font-semibold tracking-[0.2em] text-[var(--color-green)]/60">PRICEDIN</span>
         </div>
-        <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/pricedinxyz" target="_blank" rel="noopener noreferrer"
           className="text-[10px] font-mono font-semibold text-black bg-[var(--color-green)] px-3 py-1 hover:bg-[var(--color-green-dim)] transition-colors">
           FOLLOW →
         </a>
@@ -120,7 +120,7 @@ export default function Page() {
             </p>
           </div>
           <p className="text-sm text-[var(--color-muted)] mb-8">And yet here you are. Which means you already know what to do.</p>
-          <a href="https://x.com/PricedInToken" target="_blank" rel="noopener noreferrer"
+          <a href="https://x.com/pricedinxyz" target="_blank" rel="noopener noreferrer"
             className="inline-block text-xs font-mono font-semibold text-black bg-[var(--color-green)] px-6 py-3 hover:bg-[var(--color-green-dim)] transition-colors">
             ACKNOWLEDGE ✓ →
           </a>
